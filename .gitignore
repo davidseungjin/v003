@@ -1,0 +1,8 @@
+screen_capture/
+*.png
+*.jpg
+*.jpeg
+*.webp
+node_modules/
+.playwright-mcp/
+/tmp/serve.log

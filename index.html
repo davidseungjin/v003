@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acctual — Crypto Invoice & B2B Payments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-dark': '#1a1a2e',
+            'brand-navy': '#0f2a4a',
+            'brand-blue': '#004370',
+            'brand-muted': '#666',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          keyframes: {
+            marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            ticker: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+          },
+          animation: {
+            marquee: 'marquee 30s linear infinite',
+            ticker: 'ticker 20s linear infinite',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-size: 14px; }
+    .underline-blue {
+      text-decoration: underline;
+      text-decoration-color: #2563eb;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 3px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-100 fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="#" class="flex items-center gap-2">
+          <img src="https://framerusercontent.com/images/szqcphwfyN9bDJKpUwpNml3jcM.png" alt="Acctual" class="h-8 w-8 object-contain" />
+          <span class="font-bold text-base tracking-tight">Acctual</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-gray-600 font-medium">
+          <a href="#" class="hover:text-black transition-colors">Teams</a>
+          <a href="#" class="hover:text-black transition-colors">About</a>
+          <a href="#" class="hover:text-black transition-colors">Blog</a>
+          <a href="#" class="hover:text-black transition-colors">Guides</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm text-gray-700 font-medium hover:text-black transition-colors">Log in</a>
+        <a href="#" class="bg-gray-900 text-white text-sm px-5 py-2.5 rounded-full font-semibold hover:bg-gray-700 transition-colors">Sign up for free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="relative min-h-screen overflow-hidden pt-16" style="background: radial-gradient(ellipse 80% 60% at 50% 0%, #dce5ef 0%, #e8edf4 40%, #f0f3f7 70%, #f7f9fc 100%);">
+
+
+    <!-- Floating elements -->
+    <!-- Notebook top-left -->
+    <img src="https://framerusercontent.com/images/sKWaRtYyMiCpwyq3FvYupBQ.png" alt="" class="absolute pointer-events-none" style="left:-60px; top:60px; width:260px; opacity:0.95;" />
+    <!-- $100 bill top-right -->
+    <img src="https://framerusercontent.com/images/PbIK1Qi2AW9ayIWiEepIZ4X9Y.png" alt="" class="absolute pointer-events-none" style="right:-30px; top:55px; width:260px;" />
+    <!-- Chat bubbles above heading -->
+    <img src="https://framerusercontent.com/images/OXqvQpqs6AnUUuOjvmoxlKMjTw.png" alt="" class="absolute pointer-events-none" style="left:50%; transform:translateX(-50%); top:95px; width:320px;" />
+    <!-- Ethereum circle right -->
+    <img src="https://framerusercontent.com/images/wVLsFQwQ3iHsqfJlVglcslho4Q.png" alt="" class="absolute pointer-events-none" style="right:200px; top:140px; width:100px;" />
+    <!-- Invoice UI right side -->
+    <img src="https://framerusercontent.com/images/BdZnBNJh3RoRsMgck5Y9VqJVwZA.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:-80px; top:180px; width:380px; opacity:0.9;" />
+    <!-- Left invoice sticker -->
+    <img src="https://framerusercontent.com/images/ww9zfRq1vgo3ieVxHc88ClZA.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:-20px; top:240px; width:200px;" />
+    <!-- USDC / tether left -->
+    <img src="https://framerusercontent.com/images/uuOGPNo5BpwuLNKabYniDE1UzUY.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:40px; top:370px; width:140px;" />
+    <!-- Bottom-left transaction UI -->
+    <img src="https://framerusercontent.com/images/RVnK7dBpLbgTLHY59HUFE9joXmQ.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:60px; top:480px; width:200px;" />
+    <!-- Bottom-right USDC receipt -->
+    <img src="https://framerusercontent.com/images/dQJNJ0OnZHuxzUD4wpsXx9rPOo.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:20px; top:430px; width:260px;" />
+    <!-- Small clipboard right -->
+    <img src="https://framerusercontent.com/images/xSXenWs1UJkTy0XAXVlAQAAwlE.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:220px; top:370px; width:70px;" />
+
+    <!-- Hero center content -->
+    <div class="relative z-10 flex flex-col items-center justify-center pt-36 pb-16 text-center px-6">
+      <h1 class="text-[72px] md:text-[88px] font-black text-gray-900 leading-none tracking-tight mb-6">
+        Get paid<br/>same day
+      </h1>
+      <p class="text-lg text-gray-600 mb-10 max-w-md leading-relaxed">
+        By sending customers the most<br/>flexible invoice on the planet.
+      </p>
+      <a href="#" class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-gray-700 transition-colors shadow-lg">
+        Create invoice in seconds
+      </a>
+    </div>
+
+    <!-- Social proof + Logo marquee -->
+    <div class="relative z-10 pb-10">
+      <p class="text-center text-sm text-gray-500 mb-6 font-medium">
+        Used by <strong class="text-gray-700">5,000+</strong> businesses &amp; freelancers in <strong class="text-gray-700">129+</strong> countries
+      </p>
+      <!-- Marquee -->
+      <div class="overflow-hidden w-full">
+        <div class="flex animate-marquee whitespace-nowrap">
+          <img src="https://framerusercontent.com/images/LKULnrsix0tDPTq55VlsaKFozw.png" alt="Company logos" class="h-10 object-contain flex-shrink-0" />
+          <img src="https://framerusercontent.com/images/LKULnrsix0tDPTq55VlsaKFozw.png" alt="Company logos" class="h-10 object-contain flex-shrink-0" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUE PROP ===== -->
+  <section class="relative overflow-hidden py-28" style="background: linear-gradient(180deg, #e8edf2 0%, #f0f2f5 50%, #ffffff 100%);">
+    <!-- Floating stickers -->
+    <img src="https://framerusercontent.com/images/nFUOUAeW9flvYLUoZRRkTs2Q.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:30px; top:80px; width:180px;" />
+    <img src="https://framerusercontent.com/images/xSlSoRNuNvwBiqoU3wy9eo2OE.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:200px; top:40px; width:90px;" />
+    <img src="https://framerusercontent.com/images/0lqanJiZSaP7LqbBZdk9UhVToJU.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:20px; top:60px; width:140px;" />
+
+    <div class="max-w-5xl mx-auto px-6 text-center mb-16">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
+        We help you get paid<br/>faster, easier and cheaper<br/>in any currency you want
+      </h2>
+      <p class="text-gray-500 text-base mb-2">
+        Let your customers pay in dollars, euros or stablecoins <em class="text-blue-500 not-italic">(more coming soon)</em>
+      </p>
+      <p class="text-gray-500 text-base mb-10">
+        And, of course, get paid in whatever way works best for you.
+      </p>
+      <a href="#" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-gray-700 transition-colors">
+        Make an invoice
+      </a>
+    </div>
+
+    <!-- Invoice card mockups -->
+    <div class="max-w-4xl mx-auto px-6 relative" style="height: 600px;">
+      <!-- Floating clip -->
+      <img src="https://framerusercontent.com/images/bxpiujquc4hWlUXcmt6uq1nTc.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:40%; top:-30px; width:60px; z-index:10;" />
+      <!-- Marble Studio invoice (left, slightly rotated, behind) -->
+      <img src="https://framerusercontent.com/images/9ivnxgp5QVx5gkJvUqgM9bONc1A.png" alt="Marble Studio invoice" class="absolute shadow-2xl rounded-2xl" style="left:5%; top:0; width:46%; transform:rotate(-3deg); z-index:10;" />
+      <!-- Charm AI invoice (right, overlapping) -->
+      <img src="https://framerusercontent.com/images/akCcLkdaoUVZ8EE0Zil0qIqbgTk.png" alt="Charm AI invoice" class="absolute shadow-2xl rounded-2xl" style="right:5%; top:60px; width:46%; transform:rotate(2deg); z-index:20;" />
+      <!-- Yellow sticky note -->
+      <img src="https://framerusercontent.com/images/qzHrDnMvOy1L04pkZXOUzGHw4.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:0; bottom:-20px; width:130px; z-index:30; transform:rotate(8deg);" />
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL ===== -->
+  <section class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #f8f9fb 0%, #f0f3f7 100%);">
+    <!-- Floating ethereum -->
+    <img src="https://framerusercontent.com/images/vhuvBaB6OLTuK6imOMo4WGjMDQ.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:60px; top:40px; width:180px; opacity:0.8;" />
+
+    <div class="max-w-3xl mx-auto px-6">
+      <!-- Testimonial card -->
+      <div class="relative bg-white rounded-3xl p-10 shadow-xl rotate-[-1deg]">
+        <!-- Quote mark -->
+        <div class="text-6xl text-gray-200 font-serif absolute bottom-8 right-10 leading-none">"</div>
+        <p class="text-gray-700 text-lg leading-relaxed mb-6 italic">
+          Acctual lets me invoice without the hassle—it's clean, fast, and I can get in and out in minutes. Unlike other platforms, I don't have to chase people down or deal with the frustration of mismatched payment preferences.
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://framerusercontent.com/images/rBiMIHZvCTVHqOxDLDaquIGFke4.png" alt="Jesse Friedland" class="w-10 h-10 rounded-full object-cover object-top" />
+          <span class="text-sm font-semibold text-gray-800">Jesse Friedland</span>
+        </div>
+      </div>
+      <!-- Goonzworld badge -->
+      <div class="mt-4 ml-8 inline-flex items-center bg-white rounded-2xl px-5 py-3 shadow-md rotate-[1deg] gap-2">
+        <span class="text-sm font-bold text-gray-800" style="font-family: cursive;">Goonzworld</span>
+        <img src="https://framerusercontent.com/images/tbZwWdnRkv9XaYZ4BVlRgoNS8Y.png" alt="Goonzworld" class="h-5 object-contain" style="max-width:80px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="py-28 relative overflow-hidden" style="background: linear-gradient(180deg, #f0f3f7 0%, #edf0f5 100%);">
+    <!-- Floating tether sticker left -->
+    <img src="https://framerusercontent.com/images/NQKl05u6z2NCYYFaqE3cmYdTUlc.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:80px; top:120px; width:120px;" />
+    <!-- Floating circle right -->
+    <img src="https://framerusercontent.com/images/nyvSVKFMBtlEMCzUKDHWMx8VNYs.png" alt="" class="absolute pointer-events-none hidden lg:block" style="right:80px; top:100px; width:160px;" />
+
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-12">With simple pricing</h2>
+
+      <div class="bg-white rounded-3xl shadow-xl p-10 max-w-md mx-auto text-left">
+        <p class="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-widest">Invoicing</p>
+        <div class="mb-1">
+          <span class="text-5xl font-black text-gray-900">1%</span>
+          <span class="text-xl text-gray-500 font-medium ml-2">per payment</span>
+        </div>
+        <p class="text-sm text-gray-500 mb-6">0% on same method &amp; currency</p>
+
+        <a href="#" class="block bg-gray-900 text-white text-center px-6 py-3.5 rounded-full font-semibold text-sm hover:bg-gray-700 transition-colors mb-8">
+          Get started
+        </a>
+
+        <div class="border-t border-gray-100 pt-6 space-y-6">
+          <div>
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Usage</p>
+            <div class="flex items-center gap-3 text-sm text-gray-800">
+              <img src="https://framerusercontent.com/images/l4X1c5voYbHKORSgeYxGEOkIAg.png" alt="✓" class="w-4 h-4 object-contain flex-shrink-0" />
+              <span>Unlimited invoices</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Features</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 text-sm text-gray-800">
+                <img src="https://framerusercontent.com/images/l4X1c5voYbHKORSgeYxGEOkIAg.png" alt="✓" class="w-4 h-4 object-contain flex-shrink-0" />
+                <span>Flexible payment options (1%)</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-800">
+                <img src="https://framerusercontent.com/images/l4X1c5voYbHKORSgeYxGEOkIAg.png" alt="✓" class="w-4 h-4 object-contain flex-shrink-0" />
+                <span>Automated QBO/Xero sync</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CURRENCIES ===== -->
+  <section class="py-24 relative overflow-hidden bg-white">
+    <div class="max-w-5xl mx-auto px-6 mb-10">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight text-center">
+        Euros, Dollars, Yens, USDC, USDT…<br/>
+        we <span class="underline-blue">do it all</span> and we <span class="underline-blue">do it fast.</span>
+      </h2>
+    </div>
+
+    <!-- Scrolling country ticker -->
+    <div class="overflow-hidden mb-14 py-3">
+      <div class="flex animate-ticker whitespace-nowrap">
+        <div class="flex gap-10 pr-10 text-sm text-gray-500 font-medium">
+          <span>Developer in India 🇮🇳</span>
+          <span>Export agent from China 🇨🇳</span>
+          <span>UX designer in Argentina 🇦🇷</span>
+          <span>Support in Philippines 🇵🇭</span>
+          <span>Import agent from Nigeria 🇳🇬</span>
+          <span>Design firm from Singapore 🇸🇬</span>
+          <span>Property agent in the UAE 🇦🇪</span>
+          <span>Accounting in Cayman Islands 🇰🇾</span>
+          <span>Brand designer in Ukraine 🇺🇦</span>
+          <span>Startup in US 🇺🇸</span>
+        </div>
+        <div class="flex gap-10 pr-10 text-sm text-gray-500 font-medium">
+          <span>Developer in India 🇮🇳</span>
+          <span>Export agent from China 🇨🇳</span>
+          <span>UX designer in Argentina 🇦🇷</span>
+          <span>Support in Philippines 🇵🇭</span>
+          <span>Import agent from Nigeria 🇳🇬</span>
+          <span>Design firm from Singapore 🇸🇬</span>
+          <span>Property agent in the UAE 🇦🇪</span>
+          <span>Accounting in Cayman Islands 🇰🇾</span>
+          <span>Brand designer in Ukraine 🇺🇦</span>
+          <span>Startup in US 🇺🇸</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map tiles -->
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-6 items-center justify-center relative">
+      <!-- Paperclip sticker -->
+      <img src="https://framerusercontent.com/images/c3QBc0rtli2AqsM5tH4yDdHME04.png" alt="" class="absolute pointer-events-none hidden lg:block" style="left:40px; top:-80px; width:100px; z-index:10;" />
+
+      <div class="relative w-full md:w-1/2">
+        <img src="https://framerusercontent.com/images/1OP7H07UP1bRp8R7ZGD4IM2uM.png" alt="Mumbai payment map" class="w-full rounded-3xl shadow-2xl" />
+      </div>
+
+      <!-- Dashed line connector -->
+      <div class="hidden md:block flex-shrink-0">
+        <img src="https://framerusercontent.com/images/iCVKyUbrn58cd0cRfowKYQuTFDU.png" alt="" class="w-32 object-contain" />
+      </div>
+
+      <div class="relative w-full md:w-1/2">
+        <img src="https://framerusercontent.com/images/ZK5dqWJkAkfNv2x8h57tPTjl6Y.png" alt="San Francisco payment map" class="w-full rounded-3xl shadow-2xl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLEXIBLE INVOICE ===== -->
+  <section class="py-28 relative overflow-hidden" style="background: linear-gradient(180deg, #f8f9fb 0%, #eef1f6 100%);">
+    <div class="max-w-5xl mx-auto px-6 text-center mb-14">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-3">
+        What makes for the world's most flexible invoice?
+      </h2>
+      <p class="text-gray-500 text-lg">We're so glad you asked.</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <!-- Column 1 -->
+      <div class="flex flex-col items-center text-center gap-3">
+        <img src="https://framerusercontent.com/images/e25hP5lS262ioaKpF27OP9MZQ4.png" alt="Pay & get paid" class="w-full max-w-[200px] rounded-2xl shadow-lg" />
+        <p class="text-sm font-semibold text-gray-800 mt-2">Pay &amp; get paid, however you want</p>
+      </div>
+      <!-- Column 2 -->
+      <div class="flex flex-col items-center text-center gap-3">
+        <img src="https://framerusercontent.com/images/7No4eFzyC3vCmSsMUEuM8ugbA.png" alt="Design you're proud of" class="w-full max-w-[200px] rounded-2xl shadow-lg" />
+        <p class="text-sm font-semibold text-gray-800 mt-2">Design you're proud of</p>
+      </div>
+      <!-- Column 3 -->
+      <div class="flex flex-col items-center text-center gap-3">
+        <img src="https://framerusercontent.com/images/yNxQU6uytDLRYXHwOxozrflOT8.png" alt="Gentle reminders" class="w-full max-w-[200px] rounded-2xl shadow-lg" />
+        <p class="text-sm font-semibold text-gray-800 mt-2">Gentle reminders</p>
+      </div>
+      <!-- Column 4 -->
+      <div class="flex flex-col items-center text-center gap-3">
+        <img src="https://framerusercontent.com/images/LLkSvwmtfhpW31GZ1ericXqX1g.png" alt="Celebratory payment pings" class="w-full max-w-[200px] rounded-2xl shadow-lg" />
+        <p class="text-sm font-semibold text-gray-800 mt-2">Celebratory payment pings!</p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="#" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-gray-700 transition-colors">
+        Get started
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== LETTER / CTA ===== -->
+  <section class="relative overflow-hidden py-28" style="min-height: 700px;">
+    <!-- Dark navy textured background -->
+    <img src="https://framerusercontent.com/images/c3r23tSOdzMnVkF4b38oqveZks.jpg" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+    <div class="absolute inset-0 bg-[#0d2137]/70 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <!-- Letter card -->
+      <div class="lg:w-3/5 relative">
+        <!-- Yellow sticky note -->
+        <img src="https://framerusercontent.com/images/2RNYoF4u0BWC8MCMrcicx0rMC9o.png" alt="getting businesses paid" class="absolute -top-16 right-0 w-36 rotate-3 z-20 pointer-events-none" />
+
+        <div class="bg-white rounded-3xl shadow-2xl p-10 relative" style="font-family: Georgia, serif; line-height: 1.8; font-size: 15px; color: #333;">
+          <p class="mb-4">Dear business owner, <span class="text-gray-400">♡</span></p>
+          <p class="mb-4">
+            Running a small business isn't for the faint of heart. Especially when you're working with people all over the world. It can be hard to get paid. You need country specific bank accounts. Sometimes they work, sometimes they don't. They take a long time. Expensive fees.
+          </p>
+          <p class="mb-4">
+            No wonder staying in the game is so hard. That's why Net 0 is our love language.
+          </p>
+          <p class="mb-6">Love you, pay me.</p>
+          <div>
+            <p class="font-semibold" style="font-family: cursive, serif; font-size: 18px;">Atikh Bana</p>
+            <p class="text-sm text-gray-500" style="font-family: Georgia, serif;">Cofounder of Acctual</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA text -->
+      <div class="lg:w-2/5 text-white text-center lg:text-left">
+        <p class="text-xl md:text-2xl lg:text-3xl font-bold leading-snug mb-8">
+          When you let people pay and get paid the way they want, the more progress gets made, faster.
+        </p>
+        <a href="#" class="inline-block border border-white/60 text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-white/10 transition-colors">
+          About us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#0a1628] text-gray-400 py-16 relative overflow-hidden">
+    <!-- World map background sketch -->
+    <img src="https://framerusercontent.com/images/imk16I5K7Yg7p9Dq6jojluf5AkM.png" alt="" class="absolute bottom-0 left-0 w-1/3 opacity-10 pointer-events-none" />
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <!-- Top CTA bar -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-14 pb-14 border-b border-white/10">
+        <div>
+          <p class="text-white text-2xl font-black mb-1">Love you, pay me</p>
+          <p class="text-gray-400 text-sm max-w-sm">Get paid "same day" by sending customers the most flexible invoice on the planet.</p>
+        </div>
+        <a href="#" class="flex-shrink-0 bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">
+          Make an invoice
+        </a>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="flex flex-col md:flex-row justify-between gap-10">
+        <!-- Brand -->
+        <div class="md:w-1/4">
+          <div class="flex items-center gap-2 mb-3">
+            <img src="https://framerusercontent.com/images/szqcphwfyN9bDJKpUwpNml3jcM.png" alt="Acctual" class="h-7 w-7 object-contain" />
+            <span class="text-white font-bold">Acctual</span>
+          </div>
+          <p class="text-xs text-gray-500 flex items-center gap-1">
+            With
+            <img src="https://framerusercontent.com/images/eOXMTgPLUGIEqYYAGbRW0CkcEw.png" alt="♥" class="h-4 w-4 object-contain inline" />
+            from NYC
+          </p>
+        </div>
+
+        <!-- Link columns -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
+          <!-- Company -->
+          <div>
+            <p class="text-white font-bold mb-3">Company</p>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-white transition-colors">Teams</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Guides</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Guides -->
+          <div>
+            <p class="text-white font-bold mb-3">Guides</p>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-white transition-colors">Transfer USDT to Bank</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Transfer USDC to Bank</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Stablecoin Invoicing</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">USDT invoicing</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">USDC invoicing</a></li>
+            </ul>
+          </div>
+          <!-- Send Money -->
+          <div>
+            <p class="text-white font-bold mb-3">Send Money</p>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-white transition-colors">Send money to UK from US</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to US from UK</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to US from Germany</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to Germany from US</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to US from Canada</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to Canada from US</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to Australia from US</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Send money to US from Australia</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
